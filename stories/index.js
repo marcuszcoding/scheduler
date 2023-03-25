@@ -9,7 +9,7 @@ import Button from "components/Button";
 import DayListItem from "components/DayListItem";
 import DayList from "components/DayList";
 import InterviewerListItem from "components/InterviewerListItem"
-
+import InterviewerList from "components/InterviewerList"
 /// Button ///
 
 storiesOf("Button", module)
@@ -61,18 +61,18 @@ storiesOf("Button", module)
   ];
   
   storiesOf("DayList", module)
-    .addParameters({
-      backgrounds: [{ name: "dark", value: "#222f3e", default: true }],
-    })
-    .add("Monday", () => (
-      <DayList days={days} day={"Monday"} setDay={action("setDay")} />
-    ))
-    .add("Tuesday", () => (
-      <DayList days={days} day={"Tuesday"} setDay={action("setDay")} />
-    ))
-    .add("Wednesday", () => (
-        <DayList days={days} day={"Wednesday"} setDay={action("setDay")} />
-    ));
+  .addParameters({
+    backgrounds: [{ name: "dark", value: "#222f3e", default: true }],
+  })
+  .add("Monday", () => (
+    <DayList days={days} value={"Monday"} onChange={action("setDay")} />
+  ))
+  .add("Tuesday", () => (
+    <DayList days={days} value={"Tuesday"} onChange={action("setDay")} />
+  ))
+  .add("Wednesday", () => (
+    <DayList days={days} value={"Wednesday"} onChange={action("setDay")} />
+  ));
 
     /// Interviewer List Item Stories ///
 
@@ -103,10 +103,9 @@ storiesOf("Button", module)
       ))
       .add("Clickable", () => (
         <InterviewerListItem
-          id={interviewer.id}
           name={interviewer.name}
           avatar={interviewer.avatar}
-          setInterviewer={action("setInterviewer")}
+          setInterviewer={() => action("setInterviewer")(interviewer.id)}
         />
       ));
 
