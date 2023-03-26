@@ -5,6 +5,7 @@ import { action } from "@storybook/addon-actions";
 
 import "index.scss";
 
+
 import Button from "components/Button";
 import DayListItem from "components/DayListItem";
 import DayList from "components/DayList";
@@ -34,7 +35,7 @@ storiesOf("Button", module)
 
 /// Day List Item ///
 
-  storiesOf("DayListItem", module) //Initiates Storybook and registers our DayListItem component
+storiesOf("DayListItem", module) //Initiates Storybook and registers our DayListItem component
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
   }) // Provides the default background color for our component
@@ -64,7 +65,7 @@ storiesOf("Button", module)
     },
   ];
   
-  storiesOf("DayList", module)
+storiesOf("DayList", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }],
   })
@@ -148,38 +149,13 @@ storiesOf("InterviewerList", module)
 /// Appointment Story ///
 
   storiesOf("Appointment", module)
-  .addParameters({
+    .addParameters({
     backgrounds: [{ name: "white", value: "#fff", default: true }]
-  })
-  .add("Appointment", () => <Appointment />)
-  .add("Appointment with Time", () => <Appointment time="12pm" />);
-  
-
-
-  /// Header Story ///
-
-  storiesOf("Appointment", module)
-  .addParameters({
-    backgrounds: [{ name: "white", value: "#fff", default: true }]
-  })
-  .add("Appointment", () => <Appointment />)
-  .add("Appointment with Time", () => <Appointment time="12pm" />)
-  .add("Header", () => <Header time="12pm" />);
-
-
-  /// Empty Component Story ///
-
-  storiesOf("Appointment", module)
-  .addParameters({
-    backgrounds: [{ name: "white", value: "#fff", default: true }]
-  })
-  .add("Empty", () => <Empty onAdd={action("onAdd")}/>)
-
+    })
+    .add("Appointment", () => <Appointment />)
+    .add("Appointment with Time", () => <Appointment time="12pm" />)
+    .add("Header", () => <Header time="12pm" />)
+    .add("Empty", () => <Empty onAdd={action("onAdd")}/>)
+    .add("Show", () => <Show student="Lydia Miller-Jones" interviewer={interviewer.name} onEdit={action("onEdit")} onDelete={action("onDelete")} />)
 
   /// Show Component Story ///
-
-  storiesOf("Appointment", module)
-  .addParameters({
-    backgrounds: [{ name: "white", value: "#fff", default: true }]
-  })
-  .add("Show", () => <Show student="Lydia Miller-Jones" interviewer={interviewer.name} onEdit={action("onEdit")} onDelete={action("onDelete")} />)
