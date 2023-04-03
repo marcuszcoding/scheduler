@@ -22,3 +22,17 @@ export function getInterview(state, interview) {
     interviewer: interviewData,
   };
 }
+
+export function getInterviewersForDay(state, day) {
+  const { days, interviewers } = state;
+  const interviewerArr = [];
+
+  days.map((dayObj) => {
+    if (dayObj.name === day) {
+      dayObj.interviewers.forEach((interId) =>
+        interviewerArr.push(interviewers[interId])
+      );
+    }
+  });
+  return interviewerArr;
+}
