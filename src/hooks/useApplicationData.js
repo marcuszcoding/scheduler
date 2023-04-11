@@ -28,6 +28,7 @@ export default function useApplicationData() {
         setState({
           ...state,
           appointments,
+          days: updateSpots(state, appointments),
         });
       })
       .catch((error) => {
@@ -68,7 +69,11 @@ export default function useApplicationData() {
     return axios
       .delete(`http://localhost:8001/api/appointments/${id}`)
       .then((res) => {
-        setState({ ...state, appointments, days });
+        setState({
+          ...state,
+          appointments,
+          days: updateSpots(state, appointments),
+        });
         return res;
       });
   }
@@ -94,6 +99,20 @@ export default function useApplicationData() {
         console.log("error", error);
       });
   });
+
+  const updateSpots = function (state, appointments) {
+    return state.days.map((element) => {
+      if (element.name === state.day) {
+        return {
+          ...element,
+          spots: element.appointments
+            .map((appointment) => appointments[appointment])
+            .filter(({ interview }) => !interview).length,
+        };
+      }
+      return element;
+    });
+  };
 
   return { state, setDay, bookInterview, cancelInterview };
 }
