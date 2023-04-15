@@ -40,11 +40,9 @@ describe("Application", () => {
     fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
       target: { value: "Lydia Miller-Jones" },
     });
+
     fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
-
     fireEvent.click(getByText(appointment, "Save"));
-
-    console.log(prettyDOM(appointment));
 
     expect(getByText(appointment, "Saving")).toBeInTheDocument();
 
@@ -54,6 +52,6 @@ describe("Application", () => {
       queryByText(day, "Monday")
     );
 
-    console.log(prettyDOM(day));
+    expect(getByText(day, "no spots remaining")).toBeInTheDocument();
   });
 });
