@@ -98,7 +98,7 @@ export default function useApplicationData() {
       .catch((error) => {
         console.log("error", error);
       });
-  });
+  }, []);
 
   const updateSpots = function (state, appointments) {
     return state.days.map((element) => {
