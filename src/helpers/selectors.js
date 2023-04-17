@@ -1,4 +1,4 @@
-// Returns Array of Appointments for a specific day
+// Returns array of appointments for a specific day
 export function getAppointmentsForDay(state, day) {
   const { days, appointments } = state;
   const appointmentArr = [];
