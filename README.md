@@ -1,6 +1,8 @@
 # Interview Scheduler
 
-This Interview Scheduler project is a single page application which allows you to book, edit and delete interviews between students and mentors! It is an app built using React and makes requests to a scheduler-api server to get and save appointments!
+This Interview Scheduler project is a single page application which allows you to book, edit and delete interviews between students and mentors!
+
+Scheduler is built using React and makes requests to this [scheduler-api](https://github.com/lighthouse-labs/scheduler-api) server to get and save appointments!
 
 ## Project Showcase
 
