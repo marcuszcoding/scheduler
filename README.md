@@ -2,6 +2,24 @@
 
 This Interview Scheduler project is a single page application which allows you to book, edit and delete interviews between students and mentors! It is an app built using React and makes requests to a scheduler-api server to get and save appointments!
 
+## Project Showcase
+
+Appointments page
+
+!["Appointments page"](https://github.com/marcuszcoding/scheduler/blob/master/docs/appointment-form.png)
+
+Creating New Appointment
+
+!["Creating Appointment"](https://github.com/marcuszcoding/scheduler/blob/master/docs/create-appointment.png)
+
+New Appointment Made
+
+!["Showing New Appointment"](https://github.com/marcuszcoding/scheduler/blob/master/docs/new-appointment.png)
+
+Delete Appointment
+
+!["Deleting An Appointment"](https://github.com/marcuszcoding/scheduler/blob/master/docs/delete-appointment.png)
+
 ## Setup
 
 1.) Fork and clone this repository
