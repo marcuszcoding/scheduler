@@ -21,19 +21,13 @@ export default function useApplicationData() {
       [id]: appointment,
     };
 
-    return axios
-      .put(`/api/appointments/${id}`, { interview })
-      .then((res) => {
-        console.log(res);
-        setState({
-          ...state,
-          appointments,
-          days: updateSpots(state, appointments),
-        });
-      })
-      .catch((error) => {
-        console.log(error.message);
+    return axios.put(`/api/appointments/${id}`, { interview }).then(() => {
+      setState({
+        ...state,
+        appointments,
+        days: updateSpots(state, appointments),
       });
+    });
   }
 
   function findDay(day) {
@@ -68,13 +62,12 @@ export default function useApplicationData() {
 
     return axios
       .delete(`http://localhost:8001/api/appointments/${id}`)
-      .then((res) => {
+      .then(() => {
         setState({
           ...state,
           appointments,
           days: updateSpots(state, appointments),
         });
-        return res;
       });
   }
 

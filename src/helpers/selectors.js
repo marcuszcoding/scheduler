@@ -3,14 +3,21 @@ export function getAppointmentsForDay(state, day) {
   const { days, appointments } = state;
   const appointmentArr = [];
 
-  days.map((dayObject) => {
+  days.forEach((dayObject) => {
     if (dayObject.name === day) {
-      dayObject.appointments.map((appointment) =>
+      dayObject.appointments.forEach((appointment) =>
         appointmentArr.push(appointments[appointment])
       );
     }
   });
   return appointmentArr;
+  // const foundDay = state.days.find((dayObject) => dayObject.name === day);
+
+  // if (!foundDay) return [];
+
+  // return foundDay.appointments.map(
+  //   (appointmentId) => state.appointments[appointmentId]
+  // );
 }
 
 // Returns an interview from the interview object
@@ -30,7 +37,7 @@ export function getInterviewersForDay(state, day) {
   const { days, interviewers } = state;
   const interviewerArr = [];
 
-  days.map((dayObj) => {
+  days.forEach((dayObj) => {
     if (dayObj.name === day) {
       dayObj.interviewers.forEach((interId) =>
         interviewerArr.push(interviewers[interId])
